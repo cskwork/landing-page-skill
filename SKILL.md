@@ -35,7 +35,8 @@ A complete design system + component library for building beautiful, interactive
 | Code blocks | components-reference.html | `.code-block`, `.code-header`, `.code-copy` |
 | Tooltips | components-reference.html | `.tooltip`, `[data-tooltip]` |
 | Tabs | components-reference.html | `.tab-list`, `.tab-btn`, `.tab-panel` |
-| Theme toggle | design-system.css | `[data-theme]`, `--bg-*`, `--text-*` |
+| Theme toggle | design-system.css | `[data-theme]`, `.icon-btn[data-toggle="theme"]` |
+| Language buttons | design-system.css | `.lang-toggle`, `.lang-btn[data-lang]` |
 | Scroll reveal | app-template.js | `.reveal` → `.visible` via IntersectionObserver |
 | i18n | app-template.js | `[data-i18n]` + translations dict |
 
@@ -96,10 +97,16 @@ A complete design system + component library for building beautiful, interactive
 
 ## Tooltip Pattern
 
-Pure CSS tooltip — no JavaScript needed:
+Pure CSS tooltip — no JavaScript needed. Default opens upward; add `.tooltip-bottom` for triggers near the top of the viewport:
 
 ```html
+<!-- Opens upward (default) -->
 <span class="tooltip-trigger" data-tooltip="Helpful explanation here">
+    Hover me
+</span>
+
+<!-- Opens downward (for triggers near top of page) -->
+<span class="tooltip-trigger tooltip-bottom" data-tooltip="Explanation">
     Hover me
 </span>
 ```
@@ -165,9 +172,23 @@ gh repo edit --enable-issues
 | No meta viewport | Add `<meta name="viewport" content="width=device-width, initial-scale=1.0">` |
 | Missing `[data-theme]` on `<html>` | Set `<html data-theme="dark">` for default theme |
 | Reveal elements invisible | Ensure `app-template.js` loaded and `.reveal` has matching `.visible` logic |
-| Tooltips cut off | Add `overflow: visible` to parent containers |
+| Reveal inside hidden tab panel | Tab switch auto-reveals; or remove `.reveal` from tab content |
+| Tooltips cut off at top | Use `.tooltip-bottom` variant for triggers near viewport top |
+| Theme flash on load | Add inline `<script>` in `<head>` to set `data-theme` before render |
+| No-JS content invisible | `class="no-js"` on `<html>` + `.no-js .reveal { opacity:1 }` fallback |
 | Code copy not working | Check `.code-copy` button exists and JS is loaded |
 | Flash of unstyled content | Put font `<link>` in `<head>` before stylesheet |
+| Missing focus styles | All interactive elements have `:focus-visible` outline built in |
+
+## Accessibility
+
+The design system includes:
+- `:focus-visible` outlines on all interactive elements (keyboard navigation)
+- `prefers-reduced-motion` media query (disables animations)
+- `.no-js` fallback (content visible without JavaScript)
+- ARIA labels on icon-only buttons
+- Semantic HTML structure (proper heading hierarchy)
+- WCAG AA color contrast on all text
 
 ## Design Decisions
 

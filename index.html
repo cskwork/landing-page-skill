@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="dark" class="no-js">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>document.documentElement.classList.remove('no-js');document.documentElement.setAttribute('data-theme',localStorage.getItem('lp-theme')||'dark');</script>
     <title>Landing Page Builder — Design System & Skill for Beautiful Web Pages</title>
     <meta name="description" content="A complete design system and skill for building beautiful, interactive landing pages in plain HTML/CSS/JS. Dark/light themes, scroll animations, tooltips, code blocks — zero dependencies.">
 
@@ -23,7 +24,7 @@
     <nav class="navbar" id="navbar">
         <div class="nav-container">
             <a href="#hero" class="nav-logo">
-                <svg class="logo-icon" viewBox="0 0 100 100" width="28" height="28">
+                <svg class="logo-icon" viewBox="0 0 100 100" width="28" height="28" role="img" aria-label="Landing Page Builder logo">
                     <path d="M50 5 L20 20 L5 50 L20 80 L50 95 L80 80 L95 50 L80 20 Z" fill="none" stroke="url(#logoGrad)" stroke-width="3"/>
                     <path d="M50 25 C35 25 25 35 25 50 C25 65 35 75 50 75 C65 75 75 65 75 50 C75 35 65 25 50 25" fill="url(#logoGrad)" opacity="0.15"/>
                     <circle cx="50" cy="50" r="8" fill="url(#logoGrad)"/>
@@ -46,10 +47,10 @@
             </div>
 
             <div class="nav-right">
-                <button class="toggle-btn" data-toggle="theme">☀️</button>
-                <a href="https://github.com/cskwork/landing-page-skill" target="_blank" rel="noopener" class="btn btn-secondary" style="padding: 6px 16px; font-size: 0.85rem;">
+                <button class="icon-btn" data-toggle="theme" aria-label="Toggle theme"></button>
+                <a href="https://github.com/cskwork/landing-page-skill" target="_blank" rel="noopener" class="btn btn-secondary nav-github-btn" style="padding: 6px 16px; font-size: 0.85rem;">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-                    GitHub
+                    <span class="nav-github-text">GitHub</span>
                 </a>
                 <button class="nav-menu-toggle" id="menuToggle" aria-label="Toggle menu">
                     <span></span><span></span><span></span>
@@ -69,6 +70,7 @@
 
     <!-- Hero Section -->
     <section class="hero" id="hero">
+        <div class="hero-bg"></div>
         <div class="hero-content">
             <div class="hero-badge">
                 <span class="version-pill">v1.0</span>

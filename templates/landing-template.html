@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="dark" class="no-js">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>document.documentElement.classList.remove('no-js');document.documentElement.setAttribute('data-theme',localStorage.getItem('lp-theme')||'dark');</script>
     <title>YOUR TITLE HERE</title>
     <meta name="description" content="YOUR DESCRIPTION">
 
@@ -27,7 +28,7 @@
                 <a href="#docs">Docs</a>
             </div>
             <div class="nav-right">
-                <button class="toggle-btn" data-toggle="theme">☀️</button>
+                <button class="icon-btn" data-toggle="theme" aria-label="Toggle theme"></button>
                 <button class="nav-menu-toggle" id="menuToggle">
                     <span></span><span></span><span></span>
                 </button>
@@ -44,6 +45,7 @@
 
     <!-- Hero -->
     <section class="hero" id="hero">
+        <div class="hero-bg"></div>
         <div class="hero-content">
             <h1 class="hero-title">
                 <span class="gradient-text">Your Product</span>

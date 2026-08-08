@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="dark" class="no-js">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>document.documentElement.classList.remove('no-js');document.documentElement.setAttribute('data-theme',localStorage.getItem('lp-theme')||'dark');</script>
     <title>Component Reference — Landing Page Builder</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="design-system.css">
@@ -45,10 +46,7 @@
                             <a href="#">Pricing</a>
                         </div>
                         <div class="nav-right">
-                            <div class="toggle-group">
-                                <button class="toggle-btn active">Dark</button>
-                                <button class="toggle-btn">Light</button>
-                            </div>
+                            <button class="icon-btn" data-toggle="theme" aria-label="Toggle theme"></button>
                         </div>
                     </div>
                 </nav>

@@ -936,3 +936,280 @@ code, pre {
         text-align: center;
     }
 }
+
+
+/* ============================================
+   17. Accessibility — Focus States
+   ============================================ */
+
+/* Visible focus for keyboard navigation */
+a:focus-visible,
+button:focus-visible,
+.tab-btn:focus-visible,
+.toggle-btn:focus-visible,
+.lang-btn:focus-visible,
+.code-copy:focus-visible,
+.tooltip-trigger:focus-visible {
+    outline: 2px solid var(--accent-cyan);
+    outline-offset: 2px;
+    border-radius: var(--radius-sm);
+}
+
+/* ============================================
+   18. Language Buttons (i18n)
+   ============================================ */
+
+.lang-toggle {
+    display: flex;
+    gap: 2px;
+    padding: 3px;
+    background: var(--bg-card);
+    border-radius: 20px;
+    border: 1px solid var(--border);
+}
+
+.lang-btn {
+    padding: 5px 12px;
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    border-radius: 16px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    transition: var(--transition);
+    font-family: var(--font-sans);
+}
+
+.lang-btn:hover {
+    color: var(--text-primary);
+}
+
+.lang-btn.active {
+    background: var(--gradient-primary);
+    color: white;
+}
+
+/* ============================================
+   19. Standalone Icon Button (theme toggle)
+   ============================================ */
+
+.icon-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: var(--transition);
+    color: var(--text-secondary);
+    flex-shrink: 0;
+}
+
+.icon-btn:hover {
+    border-color: var(--accent-cyan);
+    color: var(--text-primary);
+    background: var(--bg-card-hover);
+}
+
+/* ============================================
+   20. Scrollspy Active Link
+   ============================================ */
+
+.nav-links a.active,
+.mobile-menu a.active {
+    color: var(--accent-cyan);
+}
+
+/* ============================================
+   21. Tooltip Bottom Variant
+   ============================================ */
+
+.tooltip-trigger.tooltip-bottom::after {
+    bottom: auto;
+    top: 140%;
+}
+
+.tooltip-trigger.tooltip-bottom::before {
+    bottom: auto;
+    top: 110%;
+    border-top-color: transparent;
+    border-bottom-color: var(--border-hover);
+}
+
+/* ============================================
+   22. Hero Background Visual
+   ============================================ */
+
+.hero-bg {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.hero-bg::before,
+.hero-bg::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.15;
+    animation: floatOrb 12s ease-in-out infinite;
+}
+
+.hero-bg::before {
+    width: 500px;
+    height: 500px;
+    background: var(--accent-cyan);
+    top: -100px;
+    left: -100px;
+}
+
+.hero-bg::after {
+    width: 400px;
+    height: 400px;
+    background: var(--accent-purple);
+    bottom: -50px;
+    right: -50px;
+    animation-delay: -6s;
+}
+
+@keyframes floatOrb {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(30px, -20px) scale(1.05); }
+    66% { transform: translate(-20px, 20px) scale(0.95); }
+}
+
+[data-theme="light"] .hero-bg::before,
+[data-theme="light"] .hero-bg::after {
+    opacity: 0.08;
+}
+
+/* ============================================
+   23. Custom Scrollbars
+   ============================================ */
+
+.code-block pre::-webkit-scrollbar,
+*::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+.code-block pre::-webkit-scrollbar-track,
+*::-webkit-scrollbar-track {
+    background: var(--bg-secondary);
+}
+
+.code-block pre::-webkit-scrollbar-thumb,
+*::-webkit-scrollbar-thumb {
+    background: var(--border-hover);
+    border-radius: 4px;
+}
+
+.code-block pre::-webkit-scrollbar-thumb:hover,
+*::-webkit-scrollbar-thumb:hover {
+    background: var(--text-tertiary);
+}
+
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--border-hover) var(--bg-secondary);
+}
+
+/* ============================================
+   24. Hover Scoping (touch devices)
+   ============================================ */
+
+@media (hover: hover) {
+    .feature-card:hover {
+        transform: translateY(-4px);
+        border-color: var(--border-hover);
+        box-shadow: var(--shadow-md);
+    }
+    .feature-card:hover::before { transform: scaleX(1); }
+    .btn-primary:hover {
+        box-shadow: 0 6px 30px rgba(6, 182, 212, 0.5);
+        transform: translateY(-2px);
+    }
+    .btn-secondary:hover {
+        background: var(--bg-card-hover);
+        border-color: var(--accent-cyan);
+    }
+    .callout:hover {
+        border-color: var(--accent-cyan);
+        box-shadow: var(--shadow-glow);
+        transform: translateY(-2px);
+    }
+}
+
+/* Remove hover transforms on touch */
+@media (hover: none) {
+    .feature-card:hover,
+    .btn-primary:hover,
+    .btn-secondary:hover,
+    .callout:hover {
+        transform: none;
+    }
+}
+
+/* ============================================
+   25. Reduced Motion
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+    .reveal {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+}
+
+/* ============================================
+   26. No-JS Fallback
+   ============================================ */
+
+/* If JavaScript is disabled, show all reveal content */
+.no-js .reveal {
+    opacity: 1;
+    transform: none;
+}
+
+/* ============================================
+   27. Short Viewport — Hide Scroll Indicator
+   ============================================ */
+
+@media (max-height: 600px) {
+    .scroll-indicator { display: none; }
+}
+
+/* ============================================
+   28. Mobile — Hide GitHub Text
+   ============================================ */
+
+@media (max-width: 768px) {
+    .nav-github-text { display: none; }
+    .nav-github-btn { padding: 6px 10px; }
+}
+
+/* ============================================
+   29. Print Styles
+   ============================================ */
+
+@media print {
+    .navbar, .progress-bar, .scroll-indicator, .hero-bg,
+    .nav-menu-toggle, .mobile-menu { display: none !important; }
+    .hero { min-height: auto; padding: 20px; }
+    .section { padding: 20px 0; }
+    .reveal { opacity: 1 !important; transform: none !important; }
+    body { background: white; color: black; }
+}
