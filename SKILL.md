@@ -97,7 +97,7 @@ A complete design system + component library for building beautiful, interactive
 
 ## Tooltip Pattern
 
-Pure CSS tooltip — no JavaScript needed. Default opens upward; add `.tooltip-bottom` for triggers near the top of the viewport:
+Tooltips work on desktop (hover) **and** mobile/touch (tap to toggle). Requires `app-template.js` for touch support.
 
 ```html
 <!-- Opens upward (default) -->
@@ -109,7 +109,16 @@ Pure CSS tooltip — no JavaScript needed. Default opens upward; add `.tooltip-b
 <span class="tooltip-trigger tooltip-bottom" data-tooltip="Explanation">
     Hover me
 </span>
+
+<!-- Wide variant for longer text (wraps on mobile) -->
+<span class="tooltip-trigger tooltip-wide" data-tooltip="Longer multi-line explanation...">
+    Hover me
+</span>
 ```
+
+**Desktop:** CSS `:hover` shows tooltip. **Mobile/tablet:** JS adds tap-to-toggle with outside-click-to-close. **Keyboard:** Tab to focus, Enter/Space to toggle, Escape to close.
+
+**Z-index note:** Elements containing tooltips (`.feature-card`, `.code-block`, `.callout`) have `z-index:10` on hover so the tooltip stacks above adjacent elements. Don't remove these.
 
 ```css
 .tooltip-trigger { position: relative; cursor: help; }

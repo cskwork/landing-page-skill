@@ -277,6 +277,63 @@
     }
 
     // ========================================
+    // 8b. Tooltips — Touch/Click Support
+    // ========================================
+    //
+    // On desktop: CSS :hover handles everything.
+    // On touch devices: tap to toggle, tap outside to close.
+    // The .tooltip-active class is mirrored to CSS so both paths work.
+
+    function initTooltips() {
+        var triggers = document.querySelectorAll('.tooltip-trigger');
+        if (!triggers.length) return;
+
+        var isTouch = window.matchMedia('(hover: none)').matches ||
+                       ('ontouchstart' in window);
+
+        triggers.forEach(function (trigger) {
+            trigger.setAttribute('role', 'button');
+            trigger.setAttribute('tabindex', '0');
+
+            if (isTouch) {
+                // Touch: tap to toggle tooltip
+                trigger.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    var wasActive = trigger.classList.contains('tooltip-active');
+                    // Close all other tooltips
+                    document.querySelectorAll('.tooltip-active').forEach(function (t) {
+                        t.classList.remove('tooltip-active');
+                    });
+                    if (!wasActive) {
+                        trigger.classList.add('tooltip-active');
+                    }
+                });
+            }
+
+            // Keyboard: Enter/Space to toggle, Escape to close
+            trigger.addEventListener('keydown', function (e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    trigger.classList.toggle('tooltip-active');
+                }
+                if (e.key === 'Escape') {
+                    trigger.classList.remove('tooltip-active');
+                }
+            });
+        });
+
+        // Click outside closes all tooltips
+        document.addEventListener('click', function (e) {
+            if (!e.target.closest('.tooltip-trigger')) {
+                document.querySelectorAll('.tooltip-active').forEach(function (t) {
+                    t.classList.remove('tooltip-active');
+                });
+            }
+        });
+    }
+
+    // ========================================
     // 9. Scrollspy — Active Nav Link
     // ========================================
 
@@ -315,6 +372,7 @@
         initI18n();
         initSmoothScroll();
         initScrollspy();
+        initTooltips();
     }
 
     if (document.readyState === 'loading') {

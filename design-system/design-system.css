@@ -507,6 +507,7 @@ code, pre {
     transform: translateY(-4px);
     border-color: var(--border-hover);
     box-shadow: var(--shadow-md);
+    z-index: 10;
 }
 
 .feature-card:hover::before { transform: scaleX(1); }
@@ -553,6 +554,12 @@ code, pre {
     border-radius: var(--radius-md);
     overflow: hidden;
     margin: 16px 0;
+    position: relative;
+    z-index: 1;
+}
+
+.code-block:hover {
+    z-index: 10;
 }
 
 .code-header {
@@ -673,13 +680,35 @@ code, pre {
     z-index: 1000;
 }
 
-.tooltip-trigger:hover::after {
+.tooltip-trigger:hover::after,
+.tooltip-trigger.tooltip-active::after {
     transform: translateX(-50%) scale(1);
     opacity: 1;
 }
 
-.tooltip-trigger:hover::before {
+.tooltip-trigger:hover::before,
+.tooltip-trigger.tooltip-active::before {
     opacity: 1;
+}
+
+/* Mobile: constrain tooltip width to viewport */
+@media (max-width: 768px) {
+    .tooltip-trigger::after {
+        white-space: normal;
+        width: max-content;
+        max-width: calc(100vw - 48px);
+        text-align: center;
+        line-height: 1.5;
+        font-size: 0.85rem;
+    }
+    .tooltip-trigger.tooltip-wide::after {
+        width: calc(100vw - 48px);
+        max-width: 300px;
+    }
+    /* Larger tap target on touch */
+    .tooltip-trigger {
+        padding: 4px 2px;
+    }
 }
 
 /* Wide tooltip variant */
@@ -811,6 +840,7 @@ code, pre {
     border-color: var(--accent-cyan);
     box-shadow: var(--shadow-glow);
     transform: translateY(-2px);
+    z-index: 10;
 }
 
 .callout-icon {
@@ -1130,6 +1160,7 @@ button:focus-visible,
         transform: translateY(-4px);
         border-color: var(--border-hover);
         box-shadow: var(--shadow-md);
+        z-index: 10;
     }
     .feature-card:hover::before { transform: scaleX(1); }
     .btn-primary:hover {
