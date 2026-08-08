@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page Builder — Design System & Skill for Beautiful Web Pages</title>
+    <meta name="description" content="A complete design system and skill for building beautiful, interactive landing pages in plain HTML/CSS/JS. Dark/light themes, scroll animations, tooltips, code blocks — zero dependencies.">
+
+    <meta property="og:title" content="Landing Page Builder">
+    <meta property="og:description" content="Design system + skill for beautiful, interactive landing pages. Zero dependencies.">
+    <meta property="og:type" content="website">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="design-system/design-system.css">
+</head>
+<body>
+    <!-- Progress Bar -->
+    <div class="progress-bar" id="progressBar"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#hero" class="nav-logo">
+                <svg class="logo-icon" viewBox="0 0 100 100" width="28" height="28">
+                    <path d="M50 5 L20 20 L5 50 L20 80 L50 95 L80 80 L95 50 L80 20 Z" fill="none" stroke="url(#logoGrad)" stroke-width="3"/>
+                    <path d="M50 25 C35 25 25 35 25 50 C25 65 35 75 50 75 C65 75 75 65 75 50 C75 35 65 25 50 25" fill="url(#logoGrad)" opacity="0.15"/>
+                    <circle cx="50" cy="50" r="8" fill="url(#logoGrad)"/>
+                    <defs>
+                        <linearGradient id="logoGrad" x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0%" stop-color="#06b6d4"/>
+                            <stop offset="100%" stop-color="#8b5cf6"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+                <span class="nav-title">Landing Page Builder</span>
+            </a>
+
+            <div class="nav-links" id="navLinks">
+                <a href="#features">Features</a>
+                <a href="#components">Components</a>
+                <a href="#quickstart">Quick Start</a>
+                <a href="#skill">Skill</a>
+                <a href="#deploy">Deploy</a>
+            </div>
+
+            <div class="nav-right">
+                <button class="toggle-btn" data-toggle="theme">☀️</button>
+                <a href="https://github.com/cskwork/landing-page-skill" target="_blank" rel="noopener" class="btn btn-secondary" style="padding: 6px 16px; font-size: 0.85rem;">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                    GitHub
+                </a>
+                <button class="nav-menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#features">Features</a>
+        <a href="#components">Components</a>
+        <a href="#quickstart">Quick Start</a>
+        <a href="#skill">Skill</a>
+        <a href="#deploy">Deploy</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span class="version-pill">v1.0</span>
+                <span class="license-pill">MIT License</span>
+                <span class="version-pill" style="color: var(--accent-green);">Zero Dependencies</span>
+            </div>
+            <h1 class="hero-title">
+                <span class="gradient-text">Landing Page Builder</span>
+            </h1>
+            <p class="hero-subtitle">
+                A complete design system + skill for building beautiful, interactive landing pages in plain HTML/CSS/JS. Dark/light themes, scroll animations, tooltips, code blocks, and responsive layouts — no frameworks, no build step.
+            </p>
+            <div class="hero-cta">
+                <a href="#quickstart" class="btn btn-primary">Get Started</a>
+                <a href="design-system/components-reference.html" class="btn btn-secondary">View Components</a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-number">0</span>
+                    <span class="stat-label">Dependencies</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">16+</span>
+                    <span class="stat-label">Components</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">20KB</span>
+                    <span class="stat-label">Total CSS</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">∞</span>
+                    <span class="stat-label">Customizable</span>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span>Scroll to explore</span>
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="section" id="features">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Why This?</span>
+                <h2 class="section-title">Everything You Need</h2>
+                <p class="section-desc">A production-ready design system that ships as two files. No npm install, no webpack, no config.</p>
+            </div>
+
+            <div class="feature-grid">
+                <div class="feature-card reveal">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="32" height="32"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                    </div>
+                    <h3>Zero Dependencies</h3>
+                    <p>Two files — <code>design-system.css</code> and <code>app-template.js</code>. No npm, no build tools. Just copy and go.</p>
+                </div>
+
+                <div class="feature-card reveal">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="32" height="32"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+                    </div>
+                    <h3>Dark &amp; Light Themes</h3>
+                    <p>CSS variables make theme switching instant. One attribute on <code>&lt;html&gt;</code> flips the entire palette.</p>
+                </div>
+
+                <div class="feature-card reveal">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="32" height="32"><path d="M12 2v20M2 12h20"/></svg>
+                    </div>
+                    <h3>Scroll Animations</h3>
+                    <p>Add <code>.reveal</code> to any element. IntersectionObserver handles smooth fade-up as users scroll. Progressive enhancement.</p>
+                </div>
+
+                <div class="feature-card reveal">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="32" height="32"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+                    </div>
+                    <h3>Pure CSS Tooltips</h3>
+                    <p>Helpful tooltips with <code>data-tooltip</code> — no JavaScript needed. Wide variant for multi-line text.</p>
+                </div>
+
+                <div class="feature-card reveal">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="32" height="32"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6v6H9z"/></svg>
+                    </div>
+                    <h3>Responsive by Default</h3>
+                    <p>Every component adapts from mobile to desktop. CSS Grid and <code>clamp()</code> handle fluid sizing automatically.</p>
+                </div>
+
+                <div class="feature-card reveal">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="32" height="32"><path d="M5 8l6 6M4 14l6-6 2-3M2 5h12M7 2h1M22 22l-5-10-5 10M14 18h6"/></svg>
+                    </div>
+                    <h3>Agent Skill Ready</h3>
+                    <p>Ships as a <span class="tooltip-trigger" data-tooltip="A SKILL.md file that teaches AI agents how to use this design system">skill</span> — AI agents can build pages from it. Follows writing-great-skills best practices.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Components Showcase -->
+    <section class="section section-alt" id="components">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Components</span>
+                <h2 class="section-title">Interactive Component Library</h2>
+                <p class="section-desc">Every component is ready to copy-paste. See the <a href="design-system/components-reference.html" style="color: var(--accent-cyan);">full reference →</a></p>
+            </div>
+
+            <div data-tabs>
+                <div class="tab-list">
+                    <button class="tab-btn active" data-tab="tooltip">Tooltips</button>
+                    <button class="tab-btn" data-tab="code">Code Blocks</button>
+                    <button class="tab-btn" data-tab="cards">Feature Cards</button>
+                    <button class="tab-btn" data-tab="callout">Callouts</button>
+                </div>
+
+                <div class="tab-panel active" data-panel="tooltip">
+                    <div class="feature-card" style="text-align: center; padding: 60px;">
+                        <h3 style="margin-bottom: 24px;">Hover Over These →</h3>
+                        <p style="margin-bottom: 20px;">
+                            Learn about <span class="tooltip-trigger" data-tooltip="Cascading Style Sheets — the styling language of the web">CSS variables</span> and how they enable
+                            <span class="tooltip-trigger" data-tooltip="Switching between dark and light themes instantly">theme switching</span>.
+                        </p>
+                        <p>
+                            For longer text, use <span class="tooltip-trigger tooltip-wide" data-tooltip="This wide tooltip variant wraps text to multiple lines, perfect for detailed explanations that need more space than a single line.">the wide variant</span>.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="tab-panel" data-panel="code">
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span class="code-dots"><i></i><i></i><i></i></span>
+                            <span class="code-lang">bash</span>
+                            <button class="code-copy">Copy</button>
+                        </div>
+                        <pre><code># Clone the repo and start building
+git clone https://github.com/cskwork/landing-page-skill.git
+cp landing-page-skill/design-system/* your-project/</code></pre>
+                    </div>
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span class="code-dots"><i></i><i></i><i></i></span>
+                            <span class="code-lang">html</span>
+                            <button class="code-copy">Copy</button>
+                        </div>
+                        <pre><code>&lt;link rel="stylesheet" href="design-system.css"&gt;
+&lt;script src="app-template.js"&gt;&lt;/script&gt;</code></pre>
+                    </div>
+                </div>
+
+                <div class="tab-panel" data-panel="cards">
+                    <div class="feature-grid">
+                        <div class="feature-card reveal">
+                            <div class="feature-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="32" height="32"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                            </div>
+                            <h3>Lightning Fast</h3>
+                            <p>No JavaScript framework overhead. Pages load instantly.</p>
+                        </div>
+                        <div class="feature-card reveal">
+                            <div class="feature-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="32" height="32"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                            </div>
+                            <h3>Accessible</h3>
+                            <p>Semantic HTML, ARIA labels, keyboard navigation built in.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-panel" data-panel="callout">
+                    <a href="https://github.com/cskwork/landing-page-skill" target="_blank" rel="noopener" class="callout">
+                        <span class="callout-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
+                        </span>
+                        <div class="callout-text">
+                            <strong>Star on GitHub</strong>
+                            <span>If this design system saves you time, give it a ⭐</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Start -->
+    <section class="section" id="quickstart">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Get Started</span>
+                <h2 class="section-title">Quick Start</h2>
+                <p class="section-desc">From zero to a beautiful landing page in 3 steps.</p>
+            </div>
+
+            <div class="quickstart-grid">
+                <div class="qs-step reveal">
+                    <div class="qs-number">1</div>
+                    <h3>Copy the Files</h3>
+                    <p>Grab the design system — just two files:</p>
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span class="code-dots"><i></i><i></i><i></i></span>
+                            <span class="code-lang">bash</span>
+                            <button class="code-copy">Copy</button>
+                        </div>
+                        <pre><code>git clone https://github.com/cskwork/landing-page-skill.git
+cp -r landing-page-skill/design-system/ your-project/</code></pre>
+                    </div>
+                </div>
+
+                <div class="qs-step reveal">
+                    <div class="qs-number">2</div>
+                    <h3>Link &amp; Build</h3>
+                    <p>Add to your HTML and start composing sections:</p>
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span class="code-dots"><i></i><i></i><i></i></span>
+                            <span class="code-lang">html</span>
+                            <button class="code-copy">Copy</button>
+                        </div>
+                        <pre><code>&lt;link rel="stylesheet" href="design-system.css"&gt;
+&lt;script src="app-template.js"&gt;&lt;/script&gt;
+
+&lt;section class="hero"&gt;
+  &lt;h1 class="hero-title"&gt;
+    &lt;span class="gradient-text"&gt;Hello&lt;/span&gt;
+  &lt;/h1&gt;
+&lt;/section&gt;</code></pre>
+                    </div>
+                </div>
+
+                <div class="qs-step reveal">
+                    <div class="qs-number">3</div>
+                    <h3>Customize Tokens</h3>
+                    <p>Edit <code>:root</code> variables to match your brand:</p>
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span class="code-dots"><i></i><i></i><i></i></span>
+                            <span class="code-lang">css</span>
+                            <button class="code-copy">Copy</button>
+                        </div>
+                        <pre><code>:root {
+  --accent-cyan: #your-color;
+  --accent-purple: #your-color;
+  --gradient-primary: linear-gradient(
+    135deg, #your1, #your2
+  );
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skill Section -->
+    <section class="section section-alt" id="skill">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">AI Skill</span>
+                <h2 class="section-title">Built as an Agent Skill</h2>
+                <p class="section-desc">This design system ships as a SKILL.md — AI coding agents can build pages from it directly.</p>
+            </div>
+
+            <div class="feature-grid">
+                <div class="feature-card reveal">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="32" height="32"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                    </div>
+                    <h3>SKILL.md Spec</h3>
+                    <p>Follows the <code>writing-great-skills</code> guidelines: proper frontmatter, CSO-optimized description, quick reference tables, and clear workflow.</p>
+                </div>
+
+                <div class="feature-card reveal">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="32" height="32"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+                    </div>
+                    <h3>Component Library</h3>
+                    <p>The <code>components-reference.html</code> is a live, interactive catalog. Agents read it to understand available patterns and copy exact HTML.</p>
+                </div>
+
+                <div class="feature-card reveal">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="32" height="32"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33"/></svg>
+                    </div>
+                    <h3>Design Tokens</h3>
+                    <p>All colors, spacing, shadows, and gradients are CSS variables. Agents can customize by editing one block.</p>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="https://github.com/cskwork/landing-page-skill/blob/main/SKILL.md" target="_blank" rel="noopener" class="btn btn-primary">
+                    Read the SKILL.md →
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Deploy Section -->
+    <section class="section" id="deploy">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Deployment</span>
+                <h2 class="section-title">Deploy to GitHub Pages</h2>
+                <p class="section-desc">Free hosting in under a minute. This very page is on GitHub Pages.</p>
+            </div>
+
+            <div class="quickstart-grid" style="grid-template-columns: 1fr;">
+                <div class="qs-step reveal" style="max-width: 800px; margin: 0 auto;">
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span class="code-dots"><i></i><i></i><i></i></span>
+                            <span class="code-lang">bash</span>
+                            <button class="code-copy">Copy</button>
+                        </div>
+                        <pre><code># 1. Create a public repo
+gh repo create my-landing-page --public
+
+# 2. Add your files and push
+git add . && git commit -m "Add landing page"
+git push origin main
+
+# 3. Enable GitHub Pages
+#    Settings → Pages → Source: Deploy from branch
+#    Branch: main → / (root) or /docs
+
+# 4. Your site is live at:
+#    https://&lt;username&gt;.github.io/my-landing-page/</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3><span class="gradient-text">Landing Page Builder</span></h3>
+                <p>A design system + skill for building beautiful, interactive landing pages in plain HTML/CSS/JS. Zero dependencies.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="design-system/components-reference.html">Components</a></li>
+                    <li><a href="https://github.com/cskwork/landing-page-skill/blob/main/SKILL.md">SKILL.md</a></li>
+                    <li><a href="#quickstart">Quick Start</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Files</h4>
+                <ul>
+                    <li><a href="https://github.com/cskwork/landing-page-skill/blob/main/design-system/design-system.css">design-system.css</a></li>
+                    <li><a href="https://github.com/cskwork/landing-page-skill/blob/main/design-system/app-template.js">app-template.js</a></li>
+                    <li><a href="https://github.com/cskwork/landing-page-skill/tree/main/design-system">All files</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Connect</h4>
+                <ul>
+                    <li><a href="https://github.com/cskwork/landing-page-skill">GitHub</a></li>
+                    <li><a href="https://github.com/cskwork/landing-page-skill/issues">Issues</a></li>
+                    <li><a href="https://github.com/cskwork/landing-page-skill/pulls">Pull Requests</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© 2025 Landing Page Builder · MIT License</span>
+            <span>Built with the design system itself ✨</span>
+        </div>
+    </footer>
+
+    <script src="design-system/app-template.js"></script>
+</body>
+</html>

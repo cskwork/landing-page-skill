@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YOUR TITLE HERE</title>
+    <meta name="description" content="YOUR DESCRIPTION">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="design-system.css">
+</head>
+<body>
+    <!-- Progress Bar -->
+    <div class="progress-bar" id="progressBar"></div>
+
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#hero" class="nav-logo">
+                <span class="nav-title">YourBrand</span>
+            </a>
+            <div class="nav-links" id="navLinks">
+                <a href="#features">Features</a>
+                <a href="#pricing">Pricing</a>
+                <a href="#docs">Docs</a>
+            </div>
+            <div class="nav-right">
+                <button class="toggle-btn" data-toggle="theme">☀️</button>
+                <button class="nav-menu-toggle" id="menuToggle">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#features">Features</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#docs">Docs</a>
+    </div>
+
+    <!-- Hero -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <span class="gradient-text">Your Product</span>
+            </h1>
+            <p class="hero-subtitle">
+                Your tagline goes here. Explain what you do in one compelling sentence.
+            </p>
+            <div class="hero-cta">
+                <a href="#features" class="btn btn-primary">Get Started</a>
+                <a href="#" class="btn btn-secondary">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="section" id="features">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Features</span>
+                <h2 class="section-title">Why Choose Us</h2>
+                <p class="section-desc">Your value proposition.</p>
+            </div>
+            <div class="feature-grid">
+                <div class="feature-card reveal">
+                    <h3>Feature 1</h3>
+                    <p>Description with <code>code</code>.</p>
+                </div>
+                <!-- Add more feature-card divs -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3>YourBrand</h3>
+                <p>Your description.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Links</h4>
+                <ul>
+                    <li><a href="#">Link</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© 2025 YourBrand</span>
+        </div>
+    </footer>
+
+    <script src="app-template.js"></script>
+</body>
+</html>
