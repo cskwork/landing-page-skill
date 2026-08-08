@@ -144,7 +144,12 @@
 
                     btn.classList.add('active');
                     var panel = container.querySelector('[data-panel="' + target + '"]');
-                    if (panel) panel.classList.add('active');
+                    if (panel) {
+                        panel.classList.add('active');
+                        panel.querySelectorAll('.reveal:not(.visible)').forEach(function (el) {
+                            el.classList.add('visible');
+                        });
+                    }
                 });
             });
         });
