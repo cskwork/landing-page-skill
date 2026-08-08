@@ -266,7 +266,6 @@ code, pre {
     justify-content: center;
     text-align: center;
     position: relative;
-    overflow: hidden;
     padding: 80px 24px 40px;
 }
 
@@ -489,7 +488,6 @@ code, pre {
     padding: 32px;
     transition: var(--transition);
     position: relative;
-    overflow: hidden;
 }
 
 .feature-card::before {
@@ -498,6 +496,7 @@ code, pre {
     top: 0; left: 0; right: 0;
     height: 3px;
     background: var(--gradient-primary);
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
     transform: scaleX(0);
     transform-origin: left;
     transition: transform 0.4s;
@@ -552,7 +551,6 @@ code, pre {
     background: var(--bg-tertiary);
     border: 1px solid var(--border);
     border-radius: var(--radius-md);
-    overflow: hidden;
     margin: 16px 0;
     position: relative;
     z-index: 1;
@@ -560,6 +558,10 @@ code, pre {
 
 .code-block:hover {
     z-index: 10;
+}
+
+.code-block pre {
+    overflow-x: auto;
 }
 
 .code-header {
