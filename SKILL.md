@@ -33,16 +33,18 @@ A complete design system + component library for building beautiful, interactive
 | Hero | components-reference.html | `.hero`, `.hero-title`, `.gradient-text`, `.hero-stats` |
 | Feature cards | components-reference.html | `.feature-grid`, `.feature-card`, `.reveal` |
 | Code blocks | components-reference.html | `.code-block`, `.code-header`, `.code-copy` |
-| Tooltips | components-reference.html | `.tooltip`, `[data-tooltip]` |
+| Tooltips | components-reference.html | `.tooltip-trigger`, `[data-tooltip]` |
 | Tabs | components-reference.html | `.tab-list`, `.tab-btn`, `.tab-panel` |
-| Theme toggle | design-system.css | `[data-theme]`, `.icon-btn[data-toggle="theme"]` |
+| Theme toggle | design-system.css + app-template.js | `[data-theme]`, `.icon-btn[data-toggle="theme"]` |
 | Language buttons | design-system.css | `.lang-toggle`, `.lang-btn[data-lang]` |
 | Scroll reveal | app-template.js | `.reveal` → `.visible` via IntersectionObserver |
 | i18n | app-template.js | `[data-i18n]` + translations dict |
 
 ## Design System
 
-### CSS Tokens (copy to your `:root`)
+`design-system.css` ships the complete token set for both themes. Retune these for your brand; read the file for the rest.
+
+### CSS Tokens
 
 ```css
 :root {
@@ -118,41 +120,22 @@ Tooltips work on desktop (hover) **and** mobile/touch (tap to toggle). Requires 
 
 **Desktop:** CSS `:hover` shows tooltip. **Mobile/tablet:** JS adds tap-to-toggle with outside-click-to-close. **Keyboard:** Tab to focus, Enter/Space to toggle, Escape to close.
 
-**Z-index note:** Elements containing tooltips (`.feature-card`, `.code-block`, `.callout`) have `z-index:10` on hover so the tooltip stacks above adjacent elements. Don't remove these.
+The touch and keyboard paths work by toggling `.tooltip-active` on the trigger. Hand-written tooltip CSS must style
+`.tooltip-trigger:hover::after` and `.tooltip-trigger.tooltip-active::after` together, or tap does nothing — read
+`design-system/design-system.css` section 10 (Tooltips) before writing your own.
 
-```css
-.tooltip-trigger { position: relative; cursor: help; }
-.tooltip-trigger::after {
-    content: attr(data-tooltip);
-    position: absolute;
-    bottom: 125%; left: 50%;
-    transform: translateX(-50%) scale(0);
-    background: var(--bg-card);
-    color: var(--text-primary);
-    padding: 8px 14px;
-    border-radius: var(--radius-sm);
-    border: 1px solid var(--border-hover);
-    box-shadow: var(--shadow-md);
-    font-size: 0.8rem;
-    white-space: nowrap;
-    pointer-events: none;
-    transition: transform 0.2s, opacity 0.2s;
-    opacity: 0;
-    z-index: 1000;
-}
-.tooltip-trigger:hover::after {
-    transform: translateX(-50%) scale(1);
-    opacity: 1;
-}
-```
+**Stacking:** tooltips escape their container via `z-index:10` on `.feature-card:hover`, `.code-block:hover`, and
+`.callout:hover`. Keep those rules, and clip rounded corners with `border-radius` on the child element (as
+`.feature-card::before` does) — `overflow:hidden` on the container clips the tooltip and no z-index can rescue it.
 
 ## Build Workflow
 
-1. **Copy** `design-system.css` and `app-template.js` to your project
-2. **Choose sections** from `components-reference.html` (navbar, hero, features, code blocks, tabs, footer)
+1. **Copy** `design-system.css`, `app-template.js`, and `templates/landing-template.html` (renamed `index.html`) into your
+   project — all three side by side, since the template links them by bare filename
+2. **Add sections** from `components-reference.html` (features, code blocks, tabs, callouts, footer) into the wireframe
 3. **Customize tokens** in `:root` (colors, fonts, gradients)
 4. **Add content** to HTML, wire up `data-i18n` keys if multilingual
-5. **Test** locally — just open `index.html` in a browser
+5. **Test** locally — open `index.html` in a browser and walk every row of Common Mistakes below; done when each row checks out
 6. **Deploy** to GitHub Pages (see below)
 
 ## Deploy to GitHub Pages
@@ -165,7 +148,6 @@ gh repo create my-landing-page --public
 git add . && git commit -m "Add landing page" && git push
 
 # 3. Enable GitHub Pages (serves from main branch root or /docs)
-gh repo edit --enable-issues
 # Settings → Pages → Source: Deploy from branch → main → / (root)
 
 # Or use /docs subfolder:
@@ -183,7 +165,7 @@ gh repo edit --enable-issues
 | Reveal elements invisible | Ensure `app-template.js` loaded and `.reveal` has matching `.visible` logic |
 | Reveal inside hidden tab panel | Tab switch auto-reveals; or remove `.reveal` from tab content |
 | Tooltips cut off at top | Use `.tooltip-bottom` variant for triggers near viewport top |
-| Theme flash on load | Add inline `<script>` in `<head>` to set `data-theme` before render |
+| Theme flash on load | Inline `<script>` in `<head>` reading `localStorage.getItem('lp-theme')` into `data-theme` before render — already in `templates/landing-template.html` |
 | No-JS content invisible | `class="no-js"` on `<html>` + `.no-js .reveal { opacity:1 }` fallback |
 | Code copy not working | Check `.code-copy` button exists and JS is loaded |
 | Flash of unstyled content | Put font `<link>` in `<head>` before stylesheet |
@@ -198,13 +180,3 @@ The design system includes:
 - ARIA labels on icon-only buttons
 - Semantic HTML structure (proper heading hierarchy)
 - WCAG AA color contrast on all text
-
-## Design Decisions
-
-**Why CSS variables over preprocessors:** Instant theme switching, zero build step, works everywhere.
-
-**Why IntersectionObserver for reveal:** Performant, no scroll listeners, progressive enhancement (content visible if JS fails).
-
-**Why no framework:** Landing pages are mostly static. A framework adds 100KB+ for no benefit. Plain HTML/CSS/JS loads fast and deploys anywhere.
-
-**Why data-i18n over i18next:** For 2-3 languages, a simple dictionary + attribute selector is lighter and simpler than a library.
